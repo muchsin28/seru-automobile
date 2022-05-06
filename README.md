@@ -1,1 +1,1 @@
-# seru-automobile
+# SERU Automobile API-v.1.0
