@@ -1,8 +1,13 @@
 const router = require('express').Router()
-const db = require('../models')
+const {AuthController} = require('../controller')
+const UserRoutes = require('./user')
+
+router.use('/users', UserRoutes)
+
+router.post('/register', (req,res,next)=>AuthController.register(req,res,next))
+router.post('/login', (req,res,next)=>AuthController.login(req,res,next))
 
 router.get('/', (req,res)=> {
-  console.log("db")
   res.send(`SERU Autombile API-v.${process.env.APP_VERSION}`)
 })
 
