@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({Brand, Type}) {
       // define association here
-      Brand.hasMany(Type)
-      Type.belongsTo(Brand)
+      // Brand.hasMany(Type)
+      // Type.belongsTo(Brand)
       
     }
   };

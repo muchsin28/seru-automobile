@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({Type, VehicleModel, Price}) {
       // define association here
-      Type.hasMany(VehicleModel)
-      VehicleModel.belongsTo(Type)
-      VehicleModel.hasMany(Price)
+      // Type.hasMany(VehicleModel)
+      // VehicleModel.belongsTo(Type)
+      // VehicleModel.hasMany(Price)
     }
   };
   VehicleModel.init({
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'VehicleModel',
-    tableName: 'vechile_model',
+    tableName: 'vehicle_model',
     underscored:true,
     createdAt:'created_at',
     updatedAt:'updated_at'

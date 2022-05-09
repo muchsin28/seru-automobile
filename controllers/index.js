@@ -1,4 +1,5 @@
-module.exports={
+module.exports = {
   AuthController: require('./auth'),
-  UserController: require('./user')
+  UserController: require('./user'),
+  VehicleController: require('./vehicle')
 }

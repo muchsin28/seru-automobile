@@ -23,7 +23,7 @@ class UserController{
         data: {
           total: users.count,
           page,
-          total_pages: users.count/limit,
+          total_pages: Math.ceil(users.count/limit),
           users: users.rows
         }
       })
