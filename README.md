@@ -15,12 +15,12 @@ SERU Automobile API is a JSON API that can be use for managing vehicle store
 ### C. Entity list
 The following is a list of Entity used in the SERU Automobile API.
 
-* [User](https://bitbucket.org/achiko-co/user-registration-email-microservice/src/master/)
-* [Brand](https://bitbucket.org/achiko-co/sms-microservice/src/master/)
-* [Type](https://bitbucket.org/achiko-co/aptemex-python-api/src/master/)
-* [Model](https://bitbucket.org/achiko-co/achiko-safe-api-remove-booking-card-microservice/src/master/)
-* [Year](https://bitbucket.org/achiko-co/achiko-safe-api-remove-booking-card-microservice/src/master/)
-* [Price](https://bitbucket.org/achiko-co/achiko-safe-api-remove-booking-card-microservice/src/master/)
+* [User]()
+* [Brand]()
+* [Type]()
+* [Model]()
+* [Year]()
+* [Price]()
 ##
 ### D. Getting Started
 This section is an overview of the SERU Automobile API documentation and related resources.
