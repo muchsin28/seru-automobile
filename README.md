@@ -117,5 +117,5 @@ Developers need to have this software installed on their machine:
 
 ### E. Documentation
 
-1. Desktop : Import collection file (SERU-Automobile.postman_collection.json) to postman desktop app
+1. Desktop : Import collection file `SERU-Automobile.postman_collection.json` to postman desktop app
 2. Online : Postman Documentation [https://documenter.getpostman.com/view/13590050/Uyxeonso](https://documenter.getpostman.com/view/13590050/Uyxeonso)
