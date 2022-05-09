@@ -1,10 +1,19 @@
 const router = require('express').Router()
 const {AuthController} = require('../controllers')
+
 const UserRoutes = require('./user')
-const VehicleRoutes = require('./vehicle')
+const BrandRoutes = require('./vehicle_brand')
+const TypeRoutes = require('./vehicle_type')
+const ModelRoutes = require('./vehicle_model')
+const PriceRoutes = require('./pricelist')
+const YearRoutes = require('./vehicle_year')
 
 router.use('/users', UserRoutes)
-router.use('/vehicles', VehicleRoutes)
+router.use('/brands', BrandRoutes)
+router.use('/types', TypeRoutes)
+router.use('/vehicles', ModelRoutes)
+router.use('/pricelist', PriceRoutes)
+router.use('/years', YearRoutes)
 
 router.post('/register', (req,res,next)=>AuthController.register(req,res,next))
 router.post('/login', (req,res,next)=>AuthController.login(req,res,next))

@@ -9,11 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Type, VehicleModel, Price}) {
+    static associate({Brand, Type, VehicleModel, }) {
       // define association here
-      // Type.hasMany(VehicleModel)
-      // VehicleModel.belongsTo(Type)
-      // VehicleModel.hasMany(Price)
+      VehicleModel.belongsTo(Brand,{foreignKey:'brand_id'})
+      VehicleModel.belongsTo(Type,{foreignKey:'type_id'})
     }
   };
   VehicleModel.init({
@@ -27,11 +26,30 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type:DataTypes.STRING,
       allowNull: false,
+      validate:{
+        notEmpty:true
+      }
     },
     type_id: {
       type:DataTypes.INTEGER,
+      allowNull: false,
+      validate:{
+        notEmpty:true
+      },
       references: {
         model: 'vehicle_type',
+        key: 'id',
+      },
+      onUpdate: 'CASCADE',
+    },
+    brand_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate:{
+        notEmpty:true
+      },
+      references: {
+        model: 'vehicle_brand',
         key: 'id',
       },
       onUpdate: 'CASCADE',

@@ -12,16 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      brand_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'vehicle_brand',
-          key: 'id',
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
-       created_at: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },

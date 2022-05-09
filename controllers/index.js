@@ -1,5 +1,9 @@
 module.exports = {
   AuthController: require('./auth'),
   UserController: require('./user'),
-  VehicleController: require('./vehicle')
+  BrandController: require('./brand'),
+  TypeController: require('./type'),
+  ModelController: require('./model'),
+  PriceController: require('./price'),
+  YearController: require('./year'),
 }

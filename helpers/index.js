@@ -30,6 +30,20 @@ module.exports = {
     });
     
     return arrSort
+  },
+  randomString:(string_length)=>{
+    let string = '';
+    let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    
+    for (let i = 1; i <= string_length; i++) {
+
+      let index = Math.floor(Math.random() * str.length)
+      let char = str.charAt(index)
+
+      string += char
+    }
+
+    return string
   }
 
 }

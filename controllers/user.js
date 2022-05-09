@@ -64,6 +64,10 @@ class UserController{
       const {name, email, password, is_admin}= req.body
       let user = await User.findByPk(id)
 
+      if(!user){
+        return res.status(404).json({message:"User not found!"})
+      }
+
       let userParams = user.toJSON()
 
       if(name){

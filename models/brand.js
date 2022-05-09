@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({Brand, Type}) {
       // define association here
-      // Brand.hasMany(Type)
-      // Type.belongsTo(Brand)
       
     }
   };
@@ -27,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type:DataTypes.STRING,
       allowNull: false,
+      validate:{
+        notEmpty:true
+      }
     },
     created_at:{
      type:DataTypes.DATE,

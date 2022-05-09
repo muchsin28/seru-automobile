@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({VehicleModel, Year, Price}) {
       // define association here
-      // VehicleModel.hasMany(Price)
-      // Price.belongsTo(VehicleModel)
-      // Year.hasMany(Price)
     }
   };
   Price.init({
@@ -27,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     code: {
       type:DataTypes.STRING,
       allowNull: false,
+      validate:{
+        notEmpty:true
+      },
     },
     price: {
       type:DataTypes.INTEGER,
@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     model_id: {
       type:DataTypes.INTEGER,
+      allowNull: false,
+      validate:{
+        notEmpty:true
+      },
       references: {
         model: 'VehicleModel',
         key: 'id',
@@ -42,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     year_id: {
       type:DataTypes.INTEGER,
+      allowNull: false,
+      validate:{
+        notEmpty:true
+      },
       references: {
         model: 'vehicle_year',
         key: 'id',
