@@ -1,5 +1,4 @@
 const {User} = require('../models')
-const {randomUUID} = require('crypto')
 const jwt = require('jsonwebtoken')
 const {hashPassword, checkPassword} = require('../helpers')
 

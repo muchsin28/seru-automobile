@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "07e4523c-d39c-4d63-8573-055d75087b5f",
-		"name": "SERU Automobile",
+		"name": "SERU-Automobile",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -24,70 +24,345 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users",
+							"raw": "http://localhost:3001/users",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"users"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "697"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b9-UMnGYknqnlW3krufzeweQrOHyiE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:28:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"total\": 4,\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"users\": [\n            {\n                \"id\": 4,\n                \"name\": \"Natasha Romanov\",\n                \"email\": \"natasha@avenger.com\",\n                \"is_admin\": false,\n                \"created_at\": \"2022-05-09T22:22:34.458Z\",\n                \"updated_at\": \"2022-05-09T22:22:34.459Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"jaka\",\n                \"email\": \"jaaa@mail.com\",\n                \"is_admin\": false,\n                \"created_at\": \"2022-05-09T18:11:22.533Z\",\n                \"updated_at\": \"2022-05-09T20:09:57.099Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Steve Roger\",\n                \"email\": \"steve@avenger.com\",\n                \"is_admin\": false,\n                \"created_at\": \"2022-05-09T14:09:47.323Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.323Z\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"Tony Stark\",\n                \"email\": \"tony@avenger.com\",\n                \"is_admin\": true,\n                \"created_at\": \"2022-05-09T14:09:47.255Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.255Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get User by ID",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users/14",
+							"raw": "http://localhost:3001/users/4",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"users",
-								"14"
+								"4"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get User by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/users/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c7-Op0Z+HPbkOE4jVP7JZxk7sUr4Sw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:29:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Natasha Romanov\",\n        \"email\": \"natasha@avenger.com\",\n        \"is_admin\": false,\n        \"created_at\": \"2022-05-09T22:22:34.458Z\",\n        \"updated_at\": \"2022-05-09T22:22:34.459Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_admin\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{host}}/users/14",
+							"raw": "http://localhost:3001/users/3",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"users",
-								"14"
+								"3"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"is_admin\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/users/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-BIY6xm9rQ0vOXJeNtM50ot8u378\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:30:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"jaka\",\n        \"email\": \"jaaa@mail.com\",\n        \"is_admin\": true,\n        \"created_at\": \"2022-05-09T18:11:22.533Z\",\n        \"updated_at\": \"2022-05-09T22:30:38.303Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users/14",
+							"raw": "http://localhost:3001/users/3",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"users",
-								"14"
+								"3"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/users/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-/Xp37Z7k3K1wBDJLoHp1bf31Zc4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:31:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"jaka\",\n        \"email\": \"jaaa@mail.com\",\n        \"deleted_at\": \"2022-05-09T22:31:21.736Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -111,7 +386,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Aston Martin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Datsun\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -119,16 +394,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/brands",
+							"raw": "http://localhost:3001/brands",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"brands"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create Brand",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Datsun\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "145"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"91-BToPJ46UD4jcOKojV2wmNyqpv1c\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:28:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Create data\",\n    \"data\": {\n        \"created_at\": \"2022-05-09T22:28:42.711Z\",\n        \"updated_at\": \"2022-05-09T22:28:42.711Z\",\n        \"id\": 9,\n        \"name\": \"Datsun\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "List Brand",
@@ -146,16 +486,72 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/brands",
+							"raw": "http://localhost:3001/brands",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"brands"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List Brand",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "619"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26b-ugzafOdvxYAhtKQ3OTzAMCNJ13A\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:28:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success load brand data\",\n    \"data\": {\n        \"total\": 7,\n        \"page\": 1,\n        \"total_pages\": 2,\n        \"brands\": [\n            {\n                \"id\": 1,\n                \"name\": \"Tesla\",\n                \"created_at\": \"2022-05-09T14:09:47.340Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"BMW\",\n                \"created_at\": \"2022-05-09T14:09:47.340Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Mercedes Benz\",\n                \"created_at\": \"2022-05-09T14:09:47.340Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Honda\",\n                \"created_at\": \"2022-05-09T14:09:47.340Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Toyota\",\n                \"created_at\": \"2022-05-09T14:09:47.340Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Brand by id",
@@ -173,17 +569,74 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/brands/5",
+							"raw": "http://localhost:3001/brands/5",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"brands",
 								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Brand by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/brands/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"brands",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8f-l2mtI6Qv/7yulQ+3zHaNtBCu8FI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:27:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"Toyota\",\n        \"created_at\": \"2022-05-09T14:09:47.340Z\",\n        \"updated_at\": \"2022-05-09T14:09:47.340Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Brand",
@@ -210,17 +663,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/brands/8",
+							"raw": "http://localhost:3001/brands/8",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"brands",
 								"8"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Brand",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Daihatsu\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/brands/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"brands",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-TvnF6BsqPPdWpw3+QJwPrV9xlvk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:21:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 8,\n        \"name\": \"Daihatsu\",\n        \"created_at\": \"2022-05-09T15:07:50.822Z\",\n        \"updated_at\": \"2022-05-09T22:21:35.181Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Brand",
@@ -238,17 +757,74 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/brands/6",
+							"raw": "http://localhost:3001/brands/8",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"brands",
-								"6"
+								"8"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete Brand",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/brands/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"brands",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-QOVyV9ow/dIuQtnXpFWA0rZHzoA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:27:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 8,\n        \"name\": \"Daihatsu\",\n        \"deleted_at\": \"2022-05-09T22:27:17.599Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -280,16 +856,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/types",
+							"raw": "http://localhost:3001/types",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"types"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create Type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Crossover\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"types"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"94-5r3qsjcJEnBtK/QXtG8NX9RK+n0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:21:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Create data\",\n    \"data\": {\n        \"created_at\": \"2022-05-09T22:21:16.963Z\",\n        \"updated_at\": \"2022-05-09T22:21:16.963Z\",\n        \"id\": 9,\n        \"name\": \"Crossover\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "List Type",
@@ -307,16 +948,72 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/types",
+							"raw": "http://localhost:3001/types",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"types"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List Type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"types"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "618"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26a-B6UDTqwDIRL8Ni9e3n95/AArQXY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:26:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success load type data\",\n    \"data\": {\n        \"total\": 6,\n        \"page\": 1,\n        \"total_pages\": 2,\n        \"types\": [\n            {\n                \"id\": 9,\n                \"name\": \"Crossover\",\n                \"created_at\": \"2022-05-09T22:21:16.963Z\",\n                \"updated_at\": \"2022-05-09T22:21:16.963Z\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"Supercar\",\n                \"created_at\": \"2022-05-09T14:09:47.346Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.346Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Electric\",\n                \"created_at\": \"2022-05-09T14:09:47.346Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.346Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Sedan\",\n                \"created_at\": \"2022-05-09T14:09:47.346Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.346Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"SUV\",\n                \"created_at\": \"2022-05-09T14:09:47.346Z\",\n                \"updated_at\": \"2022-05-09T14:09:47.346Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Type by id",
@@ -334,17 +1031,74 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/types/5",
+							"raw": "http://localhost:3001/types/5",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"types",
 								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Type by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/types/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"types",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "142"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8e-AIhqDT2hgHt850YkC/NHtUdntzA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:26:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"Truck\",\n        \"created_at\": \"2022-05-09T14:09:47.346Z\",\n        \"updated_at\": \"2022-05-09T22:26:18.222Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Type",
@@ -363,7 +1117,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Aston Martin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Truck\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -371,17 +1125,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/types/6",
+							"raw": "http://localhost:3001/types/5",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"types",
-								"6"
+								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Type",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Truck\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/types/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"types",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90-gURVbobMREZCpfcDi2YndoZIs9w\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:26:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"Truck\",\n        \"created_at\": \"2022-05-09T14:09:47.346Z\",\n        \"updated_at\": \"2022-05-09T22:26:18.222Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Type",
@@ -399,17 +1219,74 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/types/6",
+							"raw": "http://localhost:3001/types/6",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"types",
 								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete Type",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/types/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"types",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-Ye8SMnHUWPXaZvLIZsA1Pu86IcI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:25:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"Coupe\",\n        \"deleted_at\": \"2022-05-09T22:25:32.731Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -433,7 +1310,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"year\":2022\r\n}",
+							"raw": "{\r\n    \"year\":\"2020\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -441,16 +1318,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/years",
+							"raw": "http://localhost:3001/years",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"years"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create Year",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"year\":\"2020\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/years",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"years"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-SqZSWLO/uPz7gcXCPyALwlk2gig\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:23:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Create data\",\n    \"data\": {\n        \"created_at\": \"2022-05-09T22:23:43.662Z\",\n        \"updated_at\": \"2022-05-09T22:23:43.662Z\",\n        \"id\": 8,\n        \"year\": 2020\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "List Year",
@@ -468,16 +1410,72 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/years",
+							"raw": "http://localhost:3001/years",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"years"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List Year",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/years",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"years"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "494"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ee-DI/tKWU28PH3S6wrPRVM3x/8yHQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:25:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load Year data\",\n    \"data\": {\n        \"total\": 4,\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"years\": [\n            {\n                \"id\": 7,\n                \"year\": 2023,\n                \"created_at\": \"2022-05-09T20:23:17.222Z\",\n                \"updated_at\": \"2022-05-09T20:23:17.222Z\"\n            },\n            {\n                \"id\": 6,\n                \"year\": 1900,\n                \"created_at\": \"2022-05-09T20:22:58.169Z\",\n                \"updated_at\": \"2022-05-09T20:35:37.948Z\"\n            },\n            {\n                \"id\": 5,\n                \"year\": 2022,\n                \"created_at\": \"2022-05-09T15:59:04.926Z\",\n                \"updated_at\": \"2022-05-09T15:59:04.926Z\"\n            },\n            {\n                \"id\": 4,\n                \"year\": 2021,\n                \"created_at\": \"2022-05-09T15:59:00.210Z\",\n                \"updated_at\": \"2022-05-09T15:59:00.210Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Year by Id",
@@ -495,17 +1493,74 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/years/1",
+							"raw": "http://localhost:3001/years/4",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"years",
-								"1"
+								"4"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Year by Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/years/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"years",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-/5MIt+v5Or5SXSDheiP9Ob7j5/Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:24:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 4,\n        \"year\": 2021,\n        \"created_at\": \"2022-05-09T15:59:00.210Z\",\n        \"updated_at\": \"2022-05-09T15:59:00.210Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Year",
@@ -524,7 +1579,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"year\":2021\r\n}",
+							"raw": "{\r\n    \"year\":1900\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -532,17 +1587,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/years/2",
+							"raw": "http://localhost:3001/years/6",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"years",
-								"2"
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Year",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"year\":1900\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/years/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"years",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-l0WVe80kWNA/eFKGFAQmODv5Ig8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 20:35:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 6,\n        \"year\": 1900,\n        \"created_at\": \"2022-05-09T20:22:58.169Z\",\n        \"updated_at\": \"2022-05-09T20:35:37.948Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Year",
@@ -560,17 +1681,74 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/years/1",
+							"raw": "http://localhost:3001/years/8",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"years",
-								"1"
+								"8"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete Year",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/years/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"years",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-eRzZBfg7Qo+D4bClwNgPhpFm0xE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:24:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 8,\n        \"year\": 2020,\n        \"deleted_at\": \"2022-05-09T22:24:06.921Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -594,7 +1772,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"2022 Highlander Hybrid\",\r\n    \"type_id\":8,\r\n    \"brand_id\":5\r\n}",
+							"raw": "{\r\n    \"name\":\"2021 Highlander Hybrid\",\r\n    \"type_id\":6,\r\n    \"brand_id\":5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -602,16 +1780,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/vehicles",
+							"raw": "http://localhost:3001/vehicles",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"vehicles"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create Vehicle",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"2021 Highlander Hybrid\",\r\n    \"type_id\":6,\r\n    \"brand_id\":5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/vehicles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c2-VOBuU7nyDJuUCw0/+SJx3ip7wgA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 20:51:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Create data\",\n    \"data\": {\n        \"id\": 10,\n        \"name\": \"2021 Highlander Hybrid\",\n        \"brand\": \"Toyota\",\n        \"type\": \"Coupe\",\n        \"created_at\": \"2022-05-09T20:51:42.390Z\",\n        \"updated_at\": \"2022-05-09T20:51:42.391Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "List Vehicle",
@@ -629,22 +1872,86 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/vehicles?page=2",
+							"raw": "http://localhost:3001/vehicles",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"vehicles"
 							],
 							"query": [
 								{
 									"key": "page",
-									"value": "2"
+									"value": "1",
+									"disabled": true
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List Vehicle",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/vehicles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "811"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32b-bSirl0/mK+z/HwM241XQan2tlgI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:19:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load vehicle data\",\n    \"data\": {\n        \"total\": 4,\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"vehicles\": [\n            {\n                \"id\": 9,\n                \"name\": \"2022 Highlander Hybrid\",\n                \"brand_id\": 5,\n                \"brand\": \"Toyota\",\n                \"type_id\": 8,\n                \"type\": \"Crossover\",\n                \"created_at\": \"2022-05-09T15:21:42.718Z\",\n                \"updated_at\": \"2022-05-09T15:21:42.721Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Prius Prime\",\n                \"brand_id\": 5,\n                \"brand\": \"Toyota\",\n                \"type_id\": 2,\n                \"type\": \"Electric\",\n                \"created_at\": \"2022-05-09T15:17:23.355Z\",\n                \"updated_at\": \"2022-05-09T15:17:23.358Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"New Pajero Sport\",\n                \"brand_id\": 6,\n                \"brand\": \"Mitsubishi\",\n                \"type_id\": 8,\n                \"type\": \"Crossover\",\n                \"created_at\": \"2022-05-09T15:10:40.968Z\",\n                \"updated_at\": \"2022-05-09T15:10:40.968Z\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"Tesla Model 3 Performance\",\n                \"brand_id\": 1,\n                \"brand\": \"Tesla\",\n                \"type_id\": 2,\n                \"type\": \"Electric\",\n                \"created_at\": \"2022-05-09T14:59:01.225Z\",\n                \"updated_at\": \"2022-05-09T21:01:24.950Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Vehicle by id",
@@ -662,17 +1969,74 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/vehicles/5",
+							"raw": "http://localhost:3001/vehicles/5",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"vehicles",
 								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Vehicle by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/vehicles/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"da-7Zh82BA9OMuyjquf+bi3ngA9mKA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:04:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"New Pajero Sport\",\n        \"brand_id\": 6,\n        \"brand\": \"Mitsubishi\",\n        \"type_id\": 8,\n        \"type\": \"Crossover\",\n        \"created_at\": \"2022-05-09T15:10:40.968Z\",\n        \"updated_at\": \"2022-05-09T15:10:40.968Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Vehicle",
@@ -691,7 +2055,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Aston Martin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Tesla Model 3 Performance\",\r\n    \"type_id\":2,\r\n    \"brand_id\":1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -699,17 +2063,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/vehicles/6",
+							"raw": "http://localhost:3001/vehicles/1",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"vehicles",
-								"6"
+								"1"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Vehicle",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Tesla Model 3 Performance\",\r\n    \"type_id\":2,\r\n    \"brand_id\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/vehicles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"df-TFs7Fm7341vyTMIotxcvvKM57Xo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:19:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Tesla Model 3 Performance\",\n        \"brand\": \"Tesla\",\n        \"brand_id\": 1,\n        \"type\": \"Electric\",\n        \"type_id\": 2,\n        \"created_at\": \"2022-05-09T14:59:01.225Z\",\n        \"updated_at\": \"2022-05-09T22:19:59.734Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Vehicle",
@@ -727,17 +2157,128 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/vehicles/6",
+							"raw": "http://localhost:3001/vehicles/7",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"vehicles",
-								"6"
+								"7"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete Vehicle",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/vehicles/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-xRp1nHaYu8PtUZv1lfwO6LgKDyk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:08:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 7,\n        \"name\": \"Prius\",\n        \"brand\": \"Toyota\",\n        \"brand_id\": 5,\n        \"type\": \"Electric\",\n        \"type_id\": 2,\n        \"deleted_at\": \"2022-05-09T21:08:39.111Z\"\n    }\n}"
+						},
+						{
+							"name": "Delete Vehicle",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/vehicles/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"vehicles",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-xRp1nHaYu8PtUZv1lfwO6LgKDyk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:08:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 7,\n        \"name\": \"Prius\",\n        \"brand\": \"Toyota\",\n        \"brand_id\": 5,\n        \"type\": \"Electric\",\n        \"type_id\": 2,\n        \"deleted_at\": \"2022-05-09T21:08:39.111Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -769,16 +2310,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/pricelist",
+							"raw": "http://localhost:3001/pricelist",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"pricelist"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create price",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\":529600000,\r\n    \"model_id\":5,\r\n    \"year_id\":4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/pricelist",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"pricelist"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-J2oXdCsftQ0/lft6Pc0iundw7DM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:38:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Create data\",\n    \"data\": {\n        \"id\": 11,\n        \"code\": \"SR-AUTO-IK5Z0Z\",\n        \"model\": \"New Pajero Sport\",\n        \"model_id\": 5,\n        \"brand\": \"Mitsubishi\",\n        \"type\": \"Crossover\",\n        \"year\": 2021,\n        \"year_id\": 4,\n        \"price\": 529600000,\n        \"created_at\": \"2022-05-09T21:38:13.041Z\",\n        \"updated_at\": \"2022-05-09T21:38:13.043Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "List price",
@@ -796,16 +2402,72 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/pricelist",
+							"raw": "http://localhost:3001/pricelist",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"pricelist"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "List price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/pricelist",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"pricelist"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1193"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a9-0wew9V3fGz3bPSvJDPrm8RFJdc8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:27:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load vehicle data\",\n    \"data\": {\n        \"total\": 8,\n        \"page\": 1,\n        \"total_pages\": 2,\n        \"pricelist\": [\n            {\n                \"id\": 8,\n                \"code\": \"SR-AUTO-VCYM5B\",\n                \"model\": \"New Pajero Sport\",\n                \"model_id\": 5,\n                \"brand\": \"Mitsubishi\",\n                \"year\": 2021,\n                \"year_id\": 4,\n                \"price\": 529600000,\n                \"created_at\": \"2022-05-09T16:52:19.999Z\",\n                \"updated_at\": \"2022-05-09T16:52:20.000Z\"\n            },\n            {\n                \"id\": 7,\n                \"code\": \"SR-AUTO-Q1QQGJ\",\n                \"model\": \"Tesla Model 3 Performance\",\n                \"model_id\": 1,\n                \"brand\": \"Tesla\",\n                \"year\": 2022,\n                \"year_id\": 5,\n                \"price\": 815000000,\n                \"created_at\": \"2022-05-09T16:43:01.501Z\",\n                \"updated_at\": \"2022-05-09T16:43:01.502Z\"\n            },\n            {\n                \"id\": 6,\n                \"code\": \"SR-AUTO-E8VC3L\",\n                \"model\": \"Tesla Model 3 Performance\",\n                \"model_id\": 1,\n                \"brand\": \"Tesla\",\n                \"year\": 2022,\n                \"year_id\": 5,\n                \"price\": 815000000,\n                \"created_at\": \"2022-05-09T16:41:40.097Z\",\n                \"updated_at\": \"2022-05-09T16:41:40.098Z\"\n            },\n            {\n                \"id\": 5,\n                \"code\": \"SR-AUTO-1264N4\",\n                \"model\": \"Tesla Model 3 Performance\",\n                \"model_id\": 1,\n                \"brand\": \"Tesla\",\n                \"year\": 2022,\n                \"year_id\": 5,\n                \"price\": 815000000,\n                \"created_at\": \"2022-05-09T16:41:03.139Z\",\n                \"updated_at\": \"2022-05-09T16:41:03.140Z\"\n            },\n            {\n                \"id\": 4,\n                \"code\": \"SR-AUTO-2PUM2H\",\n                \"model\": \"Tesla Model 3 Performance\",\n                \"model_id\": 1,\n                \"brand\": \"Tesla\",\n                \"year\": 2022,\n                \"year_id\": 5,\n                \"price\": 815000000,\n                \"created_at\": \"2022-05-09T16:36:55.007Z\",\n                \"updated_at\": \"2022-05-09T16:36:55.007Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get price",
@@ -823,17 +2485,74 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/vehicles/5",
+							"raw": "http://localhost:3001/pricelist/7",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
-								"vehicles",
-								"5"
+								"pricelist",
+								"7"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/pricelist/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"pricelist",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "258"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"102-8stdx0g/FRFu/D05IAoXgPnJL6Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 21:27:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success Load data\",\n    \"data\": {\n        \"id\": 7,\n        \"code\": \"SR-AUTO-Q1QQGJ\",\n        \"model\": \"Tesla Model 3 Performance\",\n        \"model_id\": 1,\n        \"brand\": \"Tesla\",\n        \"year\": 2022,\n        \"year_id\": 5,\n        \"price\": 815000000,\n        \"created_at\": \"2022-05-09T16:43:01.501Z\",\n        \"updated_at\": \"2022-05-09T16:43:01.502Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Update price",
@@ -852,7 +2571,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"price\":500000000\r\n}",
+							"raw": "{\r\n    \"price\":\"500000000\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -860,17 +2579,83 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/pricelist/6",
+							"raw": "http://localhost:3001/pricelist/6",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"pricelist",
 								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update price",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\":\"500000000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/pricelist/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"pricelist",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116-89eCfKR7dUGvWriTtejX15S7iNk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:15:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success update data\",\n    \"data\": {\n        \"id\": 6,\n        \"code\": \"SR-AUTO-E8VC3L\",\n        \"model\": \"Tesla Model 3 Performance\",\n        \"model_id\": 1,\n        \"brand\": \"Tesla\",\n        \"type\": \"Electric\",\n        \"year\": 2022,\n        \"year_id\": 5,\n        \"price\": 500000000,\n        \"created_at\": \"2022-05-09T16:41:40.097Z\",\n        \"updated_at\": \"2022-05-09T22:15:24.276Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete price",
@@ -888,17 +2673,74 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/pricelist/6",
+							"raw": "http://localhost:3001/pricelist/10",
+							"protocol": "http",
 							"host": [
-								"{{host}}"
+								"localhost"
 							],
+							"port": "3001",
 							"path": [
 								"pricelist",
-								"6"
+								"10"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete price",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/pricelist/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"pricelist",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "229"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e5-UVWitsUxw2ikpJETkFI9mW31PVc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 May 2022 22:18:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success delete data\",\n    \"data\": {\n        \"id\": 10,\n        \"code\": \"SR-AUTO-T2F4EC\",\n        \"model\": \"New Pajero Sport\",\n        \"model_id\": 5,\n        \"brand\": \"Mitsubishi\",\n        \"type\": \"Crossover\",\n        \"year\": 2021,\n        \"year_id\": 4,\n        \"price\": 12,\n        \"deleted_at\": \"2022-05-09T22:18:27.552Z\"\n    }\n}"
+						}
+					]
 				}
 			]
 		},
@@ -933,16 +2775,81 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/login",
+					"raw": "http://localhost:3001/login",
+					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"localhost"
 					],
+					"port": "3001",
 					"path": [
 						"login"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tony@avenger.com\",\r\n    \"password\":\"friday!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "313"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"139-hu/mpi+qJ5UBMpHX5HHLtSc+TS0\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 May 2022 22:19:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Welcome, Tony Stark!\",\n    \"data\": {\n        \"name\": \"Tony Stark\",\n        \"email\": \"tony@avenger.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVG9ueSBTdGFyayIsImVtYWlsIjoidG9ueUBhdmVuZ2VyLmNvbSIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2NTIxMzQ3NjksImV4cCI6MTY1MjEzODM2OX0.Q1VgUb__gJxKnlxjzJzNGFOR1rb_jJI0ppFIWg7V-es\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Register",
@@ -951,7 +2858,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Syihab\",\r\n    \"email\":\"jaaa@mail.com\",\r\n    \"password\":\"kaujdxa\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Natasha Romanov\",\r\n    \"email\":\"natasha@avenger.com\",\r\n    \"password\":\"blackwidow\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -959,16 +2866,81 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/register",
+					"raw": "http://localhost:3001/register",
+					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"localhost"
 					],
+					"port": "3001",
 					"path": [
 						"register"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Natasha Romanov\",\r\n    \"email\":\"natasha@avenger.com\",\r\n    \"password\":\"blackwidow\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"62-hRCTcvQMtwo2bM9lGOJZ9DoYkj8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 09 May 2022 22:22:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Register Succesful !\",\n    \"data\": {\n        \"name\": \"Natasha Romanov\",\n        \"email\": \"natasha@avenger.com\"\n    }\n}"
+				}
+			]
 		}
 	]
 }

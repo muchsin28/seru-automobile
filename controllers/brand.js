@@ -79,8 +79,6 @@ class BrandController{
       const {name}= req.body
       let brand = await Brand.findByPk(id)
 
-      console.log(req.user)
-
       if(!brand){
         return res.status(404).json({message:"Brand not found!"})
       }

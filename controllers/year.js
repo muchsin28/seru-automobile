@@ -81,8 +81,12 @@ class YearController{
         return res.status(404).json({message:"Type not found!"})
       }
 
-      let existing = await Year.findOne({where:{year}})
+      let existing 
       
+      if(year){
+        existing= await Year.findOne({where:{year}})
+      }
+
       if(existing){
         return res.status(409).json({message:"Year already Exist!"})
       }

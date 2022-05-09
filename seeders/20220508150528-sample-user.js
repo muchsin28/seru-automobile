@@ -9,7 +9,7 @@ module.exports = {
       {
         name: 'Tony Stark',
         email: 'tony@avenger.com',
-        password: await hashPassword("friday!"),
+        password: await hashPassword("ironman"),
         is_admin:true,
         created_at:new Date(),
         updated_at:new Date()
@@ -17,7 +17,7 @@ module.exports = {
       {
         name: 'Steve Roger',
         email: 'steve@avenger.com',
-        password: await hashPassword("ontheleft"),
+        password: await hashPassword("captainamerica"),
         is_admin:false,
         created_at:new Date(),
         updated_at:new Date()

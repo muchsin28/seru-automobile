@@ -82,8 +82,10 @@ class UserController{
         userParams.password = password
       }
 
-      userParams.is_admin = is_admin 
-
+      if(typeof is_admin === 'boolean'){
+        userParams.is_admin = is_admin 
+      }
+      
       const updatedUser = await User.update(userParams,{where:{id}, returning:true})
 
       if(updatedUser[0] === 1){

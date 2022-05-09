@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const {validate, registerRules, loginRules}= require('../middlewares').validator
 const {AuthController} = require('../controllers')
 
 const UserRoutes = require('./user')
@@ -15,8 +16,8 @@ router.use('/vehicles', ModelRoutes)
 router.use('/pricelist', PriceRoutes)
 router.use('/years', YearRoutes)
 
-router.post('/register', (req,res,next)=>AuthController.register(req,res,next))
-router.post('/login', (req,res,next)=>AuthController.login(req,res,next))
+router.post('/register',registerRules(), validate, (req,res,next)=>AuthController.register(req,res,next))
+router.post('/login', loginRules(), validate,(req,res,next)=>AuthController.login(req,res,next))
 
 router.get('/',(req,res, next)=> {
   res.send(`SERU Autombile API-v.${process.env.APP_VERSION}`)
