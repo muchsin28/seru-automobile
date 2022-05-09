@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "07e4523c-d39c-4d63-8573-055d75087b5f",
 		"name": "SERU-Automobile",
+		"description": "Source Code: [https://github.com/muchsin28/seru-automobile](https://github.com/muchsin28/seru-automobile)\n\nSample Admin:\n\n*   Email: `'tony@avenger.com'`\n*   Password : `'friday!'`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
