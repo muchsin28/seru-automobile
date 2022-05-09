@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     id: {  
       primaryKey: true,
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
+      autoIncrement:true,
       allowNull: false,
       unique:true
     },
@@ -44,7 +45,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     is_admin: {
       type:DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: false
     },
     created_at:{

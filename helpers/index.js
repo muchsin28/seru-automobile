@@ -17,7 +17,19 @@ module.exports = {
     } catch (error) {
       return error
     }
-  }
+  },
+  parseSort:(sort)=>{
+    const arrSort= []
+    const criterias = sort.split(',')
 
+    criterias.forEach(criteria => {
+      criteria = criteria.trim().split('_')
+      const order = criteria.pop()
+      const column = criteria.join('_')
+      arrSort.push([column, order])
+    });
+    
+    return arrSort
+  }
 
 }

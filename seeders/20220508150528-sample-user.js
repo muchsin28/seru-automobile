@@ -1,6 +1,6 @@
 'use strict';
 const {randomUUID} = require('crypto');
-const {hashPassword} = require('../helper')
+const {hashPassword} = require('../helpers')
 
 
 module.exports = {
@@ -8,7 +8,6 @@ module.exports = {
    //Seed User
     await queryInterface.bulkInsert('users', [
       {
-        id:randomUUID(),
         name: 'Tony Stark',
         email: 'tony@avenger.com',
         password: await hashPassword("friday!"),
@@ -17,7 +16,6 @@ module.exports = {
         updated_at:new Date()
       },
       {
-        id:randomUUID(),
         name: 'Steve Roger',
         email: 'steve@avenger.com',
         password: await hashPassword("ontheleft"),
@@ -31,11 +29,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('users', null, {});
   }
 };

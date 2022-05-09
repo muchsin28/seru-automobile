@@ -1,25 +1,26 @@
+const {User} = require('../models')
 const {randomUUID} = require('crypto')
-const {hashPassword, checkPassword} = require('../helper')
+const jwt = require('jsonwebtoken')
+const {hashPassword, checkPassword} = require('../helpers')
 
 class AuthController{
   static async register(req,res,next){
     try{
       const {name, email, password} = req.body
 
-      const existingUser = await db.User.findOne({where:{email}})
+      const existingUser = await User.findOne({where:{email}})
 
       if (existingUser) {
         return res.status(409).json({message:"Email has been used"})
       }
 
       const newUser = {
-        id: randomUUID(),
         name,
         email,
         password: await hashPassword(password,14),
       }
 
-      const user = await db.User.create(newUser)
+      const user = await User.create(newUser)
 
       return res.json({
         message:"Register Succesful !",
@@ -37,7 +38,7 @@ class AuthController{
     try{
       const {email, password} = req.body
 
-      const user = await db.User.findOne({where:{email}})
+      const user = await User.findOne({where:{email}})
 
       if (!user) {
         return res.status(404).json({message:"You are not registered"})
@@ -49,11 +50,17 @@ class AuthController{
         return res.status(400).json({message:"Wrong email/password !"})
       }
 
+      const token = jwt.sign({ name: user.name, email:user.email, is_admin: user.is_admin },'secret', { expiresIn: '1h' });
+
+      user.token = token
+      user.save()
+
       return res.json({
         message:`Welcome, ${user.name}!`,
         data:{
           name:user.name,
-          email:user.email
+          email:user.email,
+          token
         }
       })
     } catch (e){
