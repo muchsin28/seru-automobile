@@ -44,60 +44,39 @@ Developers need to have this software installed on their machine:
 
 - Windows
   Download from this [link](https://git-scm.com/download/win)
+
 - Linux
-
-  If you're on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use `dnf`:
-
-  `dnf install git-all`
-
   If you're on a Debian-based distribution, such as Ubuntu, try `apt`:
 
   `apt install git-all`
 
 - macOS
-
-  On Mavericks (10.9) or above you can do this simply by trying to run `$ git --version` from the Terminal the very first time. If you don't have it installed already, it will prompt you to install it.
-
-  or
-
   Download from this [link](https://git-scm.com/download/mac)
 
 **Node.js**
 
 - Windows
   Download from this [link](https://nodejs.org/en/download/)
+
 - Linux
-
-  If you're on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use `dnf`:
-
-  `dnf module install nodejs:12`
-
   If you're on a Debian-based distribution, such as Ubuntu, try `apt`:
 
   `apt install nodejs`
 
 - macOS
-
   Download from this [link](https://nodejs.org/en/download/)
 
 **PostgreSQL**
 
 - Windows
   Download from this [link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+
 - Linux
-
-  If you're on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use `dnf`:
-
-  `dnf module list postgresql`
-
-  `dnf module enable postgresql:12`
-
   If you're on a Debian-based distribution, such as Ubuntu, try `apt`:
 
   `apt install postgresql postgresql-contrib`
 
 - macOS
-
   On Mac OS X Download from this [link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 #### D.2. Installation
