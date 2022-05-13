@@ -1,7 +1,5 @@
 # SERU Automobile API-v.1.0
 
-##
-
 ## Table of Contents
 
 ### A. About SERU Automobile API

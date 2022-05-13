@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('vehicle_model', {
-       id: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -10,27 +10,27 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       type_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'vehicle_type',
-          key: 'id',
+          key: 'id'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       brand_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'vehicle_brand',
-          key: 'id',
+          key: 'id'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-       created_at: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -38,9 +38,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('vehicle_model');
+    await queryInterface.dropTable('vehicle_model')
   }
-};
+}

@@ -1,10 +1,10 @@
-const {Brand} = require('../models')
-const {parseSort}= require('../helpers')
+const { Brand } = require('../models')
+const { parseSort } = require('../helpers')
 
-class BrandController{
-  static async list(req,res,next){
+class BrandController {
+  static async list (req, res, next) {
     try {
-      //TODO: Enhance with search, include
+      // TODO: Enhance with search, include
       const limit = Number(req.query.limit || process.env.DEFAULT_QUERY_LIMIT)
       const sort = req.query.sort || process.env.DEFAULT_QUERY_SORT
       const page = Number(req.query.page || 1)
@@ -12,18 +12,18 @@ class BrandController{
       const query = {
         limit,
         offset: (page - 1) * limit,
-        order: parseSort(sort),
+        order: parseSort(sort)
       }
 
-      let brands = await Brand.findAndCountAll(query)
+      const brands = await Brand.findAndCountAll(query)
 
       return res.json({
-        message:"Success load brand data",
+        message: 'Success load brand data',
         data: {
           total: brands.count,
           page,
-          total_pages: Math.ceil(brands.count/limit),
-          brands:brands.rows,
+          total_pages: Math.ceil(brands.count / limit),
+          brands: brands.rows
         }
       })
     } catch (error) {
@@ -31,102 +31,98 @@ class BrandController{
     }
   }
 
-  static async create(req,res,next){
+  static async create (req, res, next) {
     try {
-      const {name}= req.body
-      let brand = await Brand.findOne({where:{name}})
+      const { name } = req.body
+      let brand = await Brand.findOne({ where: { name } })
 
-      if(brand){
-        return res.status(409).json({message:"Brand already Exist!"})
+      if (brand) {
+        return res.status(409).json({ message: 'Brand already Exist!' })
       }
 
-      brand = await Brand.create({name})
+      brand = await Brand.create({ name })
 
       return res.json({
-        message:`Success Create data`,
-        data:brand
+        message: 'Success Create data',
+        data: brand
       })
-
     } catch (error) {
       next(error)
     }
   }
 
-
-  static async get(req,res,next){
+  static async get (req, res, next) {
     try {
-      const {id}= req.params
+      const { id } = req.params
       const brand = await Brand.findByPk(id)
 
-      if(!brand){
-        return res.status(404).json({message:"Brand not found!"})
+      if (!brand) {
+        return res.status(404).json({ message: 'Brand not found!' })
       }
 
       return res.json({
-        message:`Success Load data`,
-        data:brand
-        
-      })
+        message: 'Success Load data',
+        data: brand
 
+      })
     } catch (error) {
       next(error)
     }
   }
 
-  static async update(req,res,next){
+  static async update (req, res, next) {
     try {
-      const {id} = req.params
-      const {name}= req.body
+      const { id } = req.params
+      const { name } = req.body
       let brand = await Brand.findByPk(id)
 
-      if(!brand){
-        return res.status(404).json({message:"Brand not found!"})
+      if (!brand) {
+        return res.status(404).json({ message: 'Brand not found!' })
       }
 
-      let brandParams = brand.toJSON()
+      const brandParams = brand.toJSON()
 
-      if(name){
+      if (name) {
         brandParams.name = name
       }
 
-      const updatedBrand = await Brand.update(brandParams,{where:{id}, returning:true})
+      const updatedBrand = await Brand.update(brandParams, { where: { id }, returning: true })
 
-      if(updatedBrand[0] === 1){
-
+      if (updatedBrand[0] === 1) {
         brand = updatedBrand[1][0]
         return res.json({
-          message:"Success update data",
-          data:brand
+          message: 'Success update data',
+          data: brand
         })
       }
     } catch (error) {
       next(error)
     }
   }
-  static async delete(req,res,next){
-    try {
-      const {id} = req.params
-      let {id:brand_id, name} = await Brand.findByPk(id)
 
-      if(!brand_id){
+  static async delete (req, res, next) {
+    try {
+      const { id } = req.params
+      const { id: brand_id, name } = await Brand.findByPk(id)
+
+      if (!brand_id) {
         return res.status(404).json({
-          message:"Brand not found !"
+          message: 'Brand not found !'
         })
       }
 
-      const deleted = await Brand.destroy({where:{id}})
+      const deleted = await Brand.destroy({ where: { id } })
 
-      if(deleted){
+      if (deleted) {
         return res.json({
-          message:"Success delete data",
-          data:{
-            id:brand_id,
+          message: 'Success delete data',
+          data: {
+            id: brand_id,
             name,
             deleted_at: new Date()
           }
         })
       }
-
     } catch (error) {
       next(error)
     }

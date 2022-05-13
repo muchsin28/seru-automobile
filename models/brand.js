@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 const {
   Model
-} = require('sequelize');
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Brand extends Model {
     /**
@@ -9,41 +9,41 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Brand, Type}) {
+    static associate ({ Brand, Type }) {
       // define association here
-      
+
     }
   };
   Brand.init({
-     id: {  
+    id: {
       primaryKey: true,
       type: DataTypes.INTEGER,
-      autoIncrement:true,
+      autoIncrement: true,
       allowNull: false,
-      unique:true
+      unique: true
     },
     name: {
-      type:DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
-      validate:{
-        notEmpty:true
+      validate: {
+        notEmpty: true
       }
     },
-    created_at:{
-     type:DataTypes.DATE,
-     defaultValue: DataTypes.NOW
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
     },
-    updated_at:{
-     type:DataTypes.DATE,
-     defaultValue: DataTypes.NOW
+    updated_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
     }
   }, {
     sequelize,
     modelName: 'Brand',
     tableName: 'vehicle_brand',
-    underscored:true,
-    createdAt:'created_at',
-    updatedAt:'updated_at'
-  });
-  return Brand;
-};
+    underscored: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  })
+  return Brand
+}

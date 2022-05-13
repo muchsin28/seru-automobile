@@ -1,10 +1,10 @@
-const {Price, Year, VehicleModel, Brand, Type} = require('../models')
-const {parseSort, randomString}= require('../helpers')
+const { Price, Year, VehicleModel, Brand, Type } = require('../models')
+const { parseSort, randomString } = require('../helpers')
 
-class PriceController{
-  static async list(req,res,next){
+class PriceController {
+  static async list (req, res, next) {
     try {
-      //TODO: Enhance with search
+      // TODO: Enhance with search
       const limit = Number(req.query.limit || process.env.DEFAULT_QUERY_LIMIT)
       const sort = req.query.sort || process.env.DEFAULT_QUERY_SORT
       const page = Number(req.query.page || 1)
@@ -14,42 +14,45 @@ class PriceController{
         offset: (page - 1) * limit,
         order: parseSort(sort),
         include: [
-          { model: VehicleModel, attributes: ['name'],include:[
-            {
-              model:Brand,attributes: ['name']
-            },{
-              model:Type,attributes: ['name']
-            }]
+          {
+            model: VehicleModel,
+            attributes: ['name'],
+            include: [
+              {
+                model: Brand, attributes: ['name']
+              }, {
+                model: Type, attributes: ['name']
+              }]
           },
-          { model: Year, attributes: ['year']}
+          { model: Year, attributes: ['year'] }
         ]
       }
 
       let pricelist = await Price.findAndCountAll(query)
-      const count= pricelist.count
+      const count = pricelist.count
 
-      pricelist= pricelist.rows.map(price=>{
-        return{
-          id:price.id,
-          code:price.code,
-          model:price.VehicleModel.name,
-          model_id:price.model_id,
-          brand:price.VehicleModel.Brand.name,
-          type:price.VehicleModel.Type.name,
-          year:price.Year.year, 
-          year_id:price.year_id,
+      pricelist = pricelist.rows.map(price => {
+        return {
+          id: price.id,
+          code: price.code,
+          model: price.VehicleModel.name,
+          model_id: price.model_id,
+          brand: price.VehicleModel.Brand.name,
+          type: price.VehicleModel.Type.name,
+          year: price.Year.year,
+          year_id: price.year_id,
           price: price.price,
-          created_at:price.created_at,
+          created_at: price.created_at,
           updated_at: price.updated_at
         }
       })
 
       return res.json({
-        message:"Success Load vehicle data",
+        message: 'Success Load vehicle data',
         data: {
           total: count,
           page,
-          total_pages: Math.ceil(count/limit),
+          total_pages: Math.ceil(count / limit),
           pricelist
         }
       })
@@ -58,83 +61,85 @@ class PriceController{
     }
   }
 
-  static async get(req,res,next){
+  static async get (req, res, next) {
     try {
-      const {id}= req.params
-      let price = await Price.findByPk(id,{
+      const { id } = req.params
+      const price = await Price.findByPk(id, {
         include: [
-          { model: VehicleModel, attributes: ['name'],include:[
-            {
-              model:Brand,attributes: ['name']
-            },
-            {
-              model:Type,attributes: ['name']
-            }]
+          {
+            model: VehicleModel,
+            attributes: ['name'],
+            include: [
+              {
+                model: Brand, attributes: ['name']
+              },
+              {
+                model: Type, attributes: ['name']
+              }]
           },
-          { model: Year, attributes: ['year']}
+          { model: Year, attributes: ['year'] }
         ]
       })
 
-      if(!price){
-        return res.status(404).json({message:"Price not found!"})
+      if (!price) {
+        return res.status(404).json({ message: 'Price not found!' })
       }
-      
 
       return res.json({
-        message:`Success Load data`,
-        data:{
-          id:price.id,
-          code:price.code,
-          model:price.VehicleModel.name,
-          model_id:price.model_id,
-          brand:price.VehicleModel.Brand.name,
-          type:price.VehicleModel.Type.name,
-          year:price.Year.year, 
-          year_id:price.year_id,
+        message: 'Success Load data',
+        data: {
+          id: price.id,
+          code: price.code,
+          model: price.VehicleModel.name,
+          model_id: price.model_id,
+          brand: price.VehicleModel.Brand.name,
+          type: price.VehicleModel.Type.name,
+          year: price.Year.year,
+          year_id: price.year_id,
           price: price.price,
-          created_at:price.created_at,
+          created_at: price.created_at,
           updated_at: price.updated_at
         }
       })
-
     } catch (error) {
       next(error)
     }
   }
 
-  static async create(req,res,next){
+  static async create (req, res, next) {
     try {
-      const {price, model_id, year_id}= req.body
+      const { price, model_id, year_id } = req.body
 
-      let vehicle = await VehicleModel.findByPk(model_id,{include: 
-        [
-          { model: Brand, attributes: ['id','name']},
-          { model: Type, attributes: ['id','name']}
-        ]
+      const vehicle = await VehicleModel.findByPk(model_id, {
+        include:
+          [
+            { model: Brand, attributes: ['id', 'name'] },
+            { model: Type, attributes: ['id', 'name'] }
+          ]
       })
 
-      if(!vehicle){
-        return res.status(404).json({message:"Vehicle not Found!"})
+      if (!vehicle) {
+        return res.status(404).json({ message: 'Vehicle not Found!' })
       }
 
-      let year = await Year.findByPk(year_id)
+      const year = await Year.findByPk(year_id)
 
-      if(!year){
-        return res.status(404).json({message:"Year not Found!"})
+      if (!year) {
+        return res.status(404).json({ message: 'Year not Found!' })
       }
 
-      const params={
+      const params = {
         price,
-        code: 'SR-AUTO-'+randomString(6),
+        code: 'SR-AUTO-' + randomString(6),
         model_id,
-        year_id,
+        year_id
       }
 
-      const newPrice= await Price.create(params)
-      
+      const newPrice = await Price.create(params)
+
       let data
-      
-      if(newPrice){
+
+      if (newPrice) {
         data = {
           id: newPrice.id,
           code: newPrice.code,
@@ -151,55 +156,54 @@ class PriceController{
       }
 
       return res.json({
-        message:`Success Create data`,
+        message: 'Success Create data',
         data
       })
-
     } catch (error) {
       next(error)
     }
   }
 
-  static async update(req,res,next){
+  static async update (req, res, next) {
     try {
-      const {id} = req.params
-      const {price, model_id, year_id}= req.body
-      let existingPrice = await Price.findByPk(id)
+      const { id } = req.params
+      const { price, model_id, year_id } = req.body
+      const existingPrice = await Price.findByPk(id)
       let newPrice, vehicle, year
 
-      if(!existingPrice){
-        return res.status(404).json({message:"Price not found!"})
+      if (!existingPrice) {
+        return res.status(404).json({ message: 'Price not found!' })
       }
 
-      let priceParams = existingPrice.toJSON()
+      const priceParams = existingPrice.toJSON()
 
-      if(price){
+      if (price) {
         priceParams.price = price
       }
 
-      if(model_id){
+      if (model_id) {
         priceParams.model_id = model_id
       }
 
-      if(year_id){
+      if (year_id) {
         priceParams.year_id = year_id
       }
 
-      const updatedPrice = await Price.update(priceParams,{where:{id}, returning:true})
+      const updatedPrice = await Price.update(priceParams, { where: { id }, returning: true })
       console.log(updatedPrice)
-      if(updatedPrice[0] === 1){
-
+      if (updatedPrice[0] === 1) {
         newPrice = updatedPrice[1][0]
-        vehicle = await VehicleModel.findByPk(existingPrice.model_id,{include: 
-          [
-            { model: Brand, attributes: ['id','name']},
-            { model: Type, attributes: ['id','name']}
-          ]
+        vehicle = await VehicleModel.findByPk(existingPrice.model_id, {
+          include:
+            [
+              { model: Brand, attributes: ['id', 'name'] },
+              { model: Type, attributes: ['id', 'name'] }
+            ]
         })
         year = await Year.findByPk(existingPrice.year_id)
         return res.json({
-          message:"Success update data",
-          data:{
+          message: 'Success update data',
+          data: {
             id: newPrice.id,
             code: newPrice.code,
             model: vehicle.name,
@@ -213,57 +217,59 @@ class PriceController{
             updated_at: newPrice.updated_at
           }
         })
-
       }
 
-      return res.send("aoa")
+      return res.send('aoa')
     } catch (error) {
       next(error)
     }
   }
-  static async delete(req,res,next){
+
+  static async delete (req, res, next) {
     try {
-      const {id} = req.params
-      let price = await Price.findByPk(id,{
+      const { id } = req.params
+      const price = await Price.findByPk(id, {
         include: [
-          { model: VehicleModel, attributes: ['name'],include:[
-            {
-              model:Brand,attributes: ['name']
-            },
-            {
-              model:Type,attributes: ['name']
-            }]
+          {
+            model: VehicleModel,
+            attributes: ['name'],
+            include: [
+              {
+                model: Brand, attributes: ['name']
+              },
+              {
+                model: Type, attributes: ['name']
+              }]
           },
-          { model: Year, attributes: ['year']}
+          { model: Year, attributes: ['year'] }
         ]
       })
 
-      if(!price){
+      if (!price) {
         return res.status(404).json({
-          message:"Price not found !"
+          message: 'Price not found !'
         })
       }
 
-      const deleted = await Price.destroy({where:{id}})
+      const deleted = await Price.destroy({ where: { id } })
 
-      if(deleted){
+      if (deleted) {
         return res.json({
-          message:"Success delete data",
-          data:{
-            id:price.id,
-            code:price.code,
-            model:price.VehicleModel.name,
-            model_id:price.model_id,
-            brand:price.VehicleModel.Brand.name,
-            type:price.VehicleModel.Type.name,
-            year:price.Year.year, 
-            year_id:price.year_id,
+          message: 'Success delete data',
+          data: {
+            id: price.id,
+            code: price.code,
+            model: price.VehicleModel.name,
+            model_id: price.model_id,
+            brand: price.VehicleModel.Brand.name,
+            type: price.VehicleModel.Type.name,
+            year: price.Year.year,
+            year_id: price.year_id,
             price: price.price,
             deleted_at: new Date()
           }
         })
       }
-
     } catch (error) {
       next(error)
     }

@@ -1,4 +1,4 @@
-const { body, param, validationResult } = require('express-validator');
+const { body, param, validationResult } = require('express-validator')
 
 exports.validate = (req, res, next) => {
   const errors = validationResult(req)
@@ -18,7 +18,7 @@ exports.validate = (req, res, next) => {
 exports.registerRules = () => {
   return [
     body('email').isEmail().normalizeEmail({ gmail_remove_dots: false })
-    .withMessage('Invalid Email'),
+      .withMessage('Invalid Email'),
     body('password').isLength({ min: 8 }).withMessage('Password too weak! min. 8 chars'),
     body('name').notEmpty().withMessage('Name Required')
   ]
@@ -27,64 +27,64 @@ exports.registerRules = () => {
 exports.loginRules = () => {
   return [
     body('email').isEmail().normalizeEmail({ gmail_remove_dots: false })
-    .withMessage('Invalid Email'),
+      .withMessage('Invalid Email'),
     body('password').notEmpty().withMessage('Password required')
   ]
 }
 
-exports.IdRules=()=>{
+exports.IdRules = () => {
   return [
     param('id').isInt().withMessage('id must be integer.')
   ]
 }
 
-exports.nameRules=()=>{
+exports.nameRules = () => {
   return [
     body('name').notEmpty().withMessage('Name Required')
   ]
 }
 
-exports.updateYearRules=()=>{
+exports.updateYearRules = () => {
   return [
     param('id').isInt().withMessage('id must be integer.'),
-    body('year').optional().isInt({min:1900, max:2023}).withMessage('Year must be in range 1900-2023')
+    body('year').optional().isInt({ min: 1900, max: 2023 }).withMessage('Year must be in range 1900-2023')
   ]
 }
 
-exports.yearRules=()=>{
+exports.yearRules = () => {
   return [
-    body('year').isInt({min:1900, max:2023}).withMessage('Year must be in range 1900-2023')
+    body('year').isInt({ min: 1900, max: 2023 }).withMessage('Year must be in range 1900-2023')
   ]
 }
 
-exports.createVehicleRules=()=>{
+exports.createVehicleRules = () => {
   return [
     body('name').notEmpty().withMessage('name Required'),
     body('brand_id').isInt().withMessage('brand_id must be integer.'),
-    body('type_id').isInt().withMessage('type_id must be integer.'),
+    body('type_id').isInt().withMessage('type_id must be integer.')
 
   ]
 }
 
-exports.updateVehicleRules=()=>{
+exports.updateVehicleRules = () => {
   return [
     body('brand_id').optional().isInt().withMessage('brand_id must be integer.'),
-    body('type_id').optional().isInt().withMessage('type_id must be integer.'),
+    body('type_id').optional().isInt().withMessage('type_id must be integer.')
   ]
 }
 
-exports.createPriceRules=()=>{
+exports.createPriceRules = () => {
   return [
     body('price').isInt().withMessage('price must be integer'),
     body('model_id').isInt().withMessage('model_id must be integer.'),
-    body('year_id').isInt().withMessage('year_id must be integer.'),
+    body('year_id').isInt().withMessage('year_id must be integer.')
   ]
 }
 
-exports.updatePriceRules=()=>{
+exports.updatePriceRules = () => {
   return [
     body('price').optional().isInt().withMessage('price must be integer'),
     body('model_id').optional().isInt().withMessage('model_id must be integer.'),
-    body('year_id').optional().isInt().withMessage('year_id must be integer.'),
+    body('year_id').optional().isInt().withMessage('year_id must be integer.')
   ]
 }

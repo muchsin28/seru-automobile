@@ -5,5 +5,5 @@ module.exports = {
   TypeController: require('./type'),
   ModelController: require('./model'),
   PriceController: require('./price'),
-  YearController: require('./year'),
+  YearController: require('./year')
 }
