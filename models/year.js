@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 const {
   Model
-} = require('sequelize')
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Year extends Model {
     /**
@@ -43,6 +43,6 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at'
-  })
-  return Year
-}
+  });
+  return Year;
+};

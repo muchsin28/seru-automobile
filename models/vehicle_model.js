@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 const {
   Model
-} = require('sequelize')
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class VehicleModel extends Model {
     /**
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate ({ Brand, Type, VehicleModel }) {
       // define association here
-      VehicleModel.belongsTo(Brand, { foreignKey: 'brand_id' })
-      VehicleModel.belongsTo(Type, { foreignKey: 'type_id' })
+      VehicleModel.belongsTo(Brand, { foreignKey: 'brand_id' });
+      VehicleModel.belongsTo(Type, { foreignKey: 'type_id' });
     }
   };
   VehicleModel.init({
@@ -70,6 +70,6 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at'
-  })
-  return VehicleModel
-}
+  });
+  return VehicleModel;
+};

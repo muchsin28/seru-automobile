@@ -1,15 +1,15 @@
 const authorized = async (req, res, next) => {
   try {
-    const { is_admin } = req.user
+    const { is_admin } = req.user;
 
     if (!is_admin) {
-      return res.status(403).json({ message: 'Unautorized !' })
+      return res.status(403).json({ message: 'Unautorized !' });
     }
 
-    next()
+    next();
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
-module.exports = authorized
+module.exports = authorized;

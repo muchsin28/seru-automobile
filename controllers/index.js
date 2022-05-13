@@ -6,4 +6,4 @@ module.exports = {
   ModelController: require('./model'),
   PriceController: require('./price'),
   YearController: require('./year')
-}
+};

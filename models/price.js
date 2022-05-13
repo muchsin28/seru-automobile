@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 const {
   Model
-} = require('sequelize')
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Price extends Model {
     /**
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate ({ VehicleModel, Year, Price }) {
       // define association here
-      Price.belongsTo(VehicleModel, { foreignKey: 'model_id' })
-      Price.belongsTo(Year, { foreignKey: 'year_id' })
+      Price.belongsTo(VehicleModel, { foreignKey: 'model_id' });
+      Price.belongsTo(Year, { foreignKey: 'year_id' });
     }
   };
   Price.init({
@@ -73,6 +73,6 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at'
-  })
-  return Price
-}
+  });
+  return Price;
+};

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // Seed User
@@ -39,10 +39,10 @@ module.exports = {
         updated_at: new Date()
       }
 
-    ], {})
+    ], {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('vehicle_brand', null, {})
+    await queryInterface.bulkDelete('vehicle_brand', null, {});
   }
-}
+};

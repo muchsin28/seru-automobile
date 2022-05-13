@@ -1,5 +1,5 @@
-'use strict'
-const { hashPassword } = require('../helpers')
+'use strict';
+const { hashPassword } = require('../helpers');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -22,10 +22,10 @@ module.exports = {
         updated_at: new Date()
       }
 
-    ], {})
+    ], {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('users', null, {})
+    await queryInterface.bulkDelete('users', null, {});
   }
-}
+};
