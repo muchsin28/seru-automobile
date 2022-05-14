@@ -190,7 +190,6 @@ class PriceController {
       }
 
       const updatedPrice = await Price.update(priceParams, { where: { id }, returning: true });
-      console.log(updatedPrice);
       if (updatedPrice[0] === 1) {
         newPrice = updatedPrice[1][0];
         vehicle = await VehicleModel.findByPk(existingPrice.model_id, {
