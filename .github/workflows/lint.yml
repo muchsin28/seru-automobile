@@ -39,6 +39,4 @@ jobs:
           prettier: false
           continue_on_error: false
           auto_fix: true
-          git_name: "Montir Online"
-          git_email: syihab11001@mail.unpad.ac.id
           commit_message: "Sudah diperbaiki coy"
