@@ -39,3 +39,6 @@ jobs:
           prettier: false
           continue_on_error: false
           auto_fix: true
+          git_name: Montir Online
+          git_email: montir@online.com
+          commit_message: "Sudah diperbaiki coy"
