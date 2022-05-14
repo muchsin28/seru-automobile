@@ -35,5 +35,3 @@ jobs:
           prettier: false
           continue_on_error: false
           auto_fix: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
