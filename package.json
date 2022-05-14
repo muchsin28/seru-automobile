@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "lint":"eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -31,13 +32,13 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
     "sequelize": "^6.19.0",
-    "eslint": "^8.15.0",
+    "eslint": "^8.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.16"
   }
 }

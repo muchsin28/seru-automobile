@@ -10,6 +10,10 @@ on:
     branches:
       - main
 
+permissions:
+  checks: write
+  contents: write
+
 jobs:
   run-linters:
     name: Run linters
@@ -33,3 +37,4 @@ jobs:
         with:
           eslint: true
           prettier: false
+          continue_on_error: false
