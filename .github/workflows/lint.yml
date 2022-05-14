@@ -33,3 +33,5 @@ jobs:
         with:
           eslint: true
           prettier: false
+          continue_on_error: true
+          auto_fix: false
