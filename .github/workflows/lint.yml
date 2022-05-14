@@ -38,5 +38,3 @@ jobs:
           eslint: true
           prettier: false
           continue_on_error: false
-          auto_fix: true
-          commit_message: "Sudah diperbaiki coy"
