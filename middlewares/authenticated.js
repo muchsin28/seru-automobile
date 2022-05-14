@@ -12,7 +12,7 @@ const authenticated = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 
