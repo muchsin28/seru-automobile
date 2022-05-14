@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - main
-      
+
 permissions:
   checks: write
   contents: write
@@ -38,4 +38,4 @@ jobs:
           eslint: true
           prettier: false
           continue_on_error: false
-          auto_fix: false
+          auto_fix: true
