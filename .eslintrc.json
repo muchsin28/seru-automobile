@@ -12,7 +12,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "camelcase": ["error", "always"],
+        // "camelcase": ["error", "always"],
         "semi":["error", "always"]
     }
 }
