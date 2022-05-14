@@ -8,7 +8,7 @@ const authenticated = async (req, res, next) => {
       return res.status(403).json({ message: 'Invalid Token' });
     }
     const token = authorization.split(' ')[1];
-    const decoded = jwt.verify(token, 'secret');
+    const decoded = jwt.verify(token, process.env.SECRET);
     req.user = decoded;
     next();
   } catch (error) {
